@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+body{background:url('https://i.ibb.co/9gLGyJB/images-40.jpg');
+background-size:cover}
+
+.main{
+
+width:500px;
+height:700px;
+margin:200px auto;
+box-shadow:1px 1px 7px black;
+text-align:center;
+padding:10px;
+background:#fff;
+border:1px 1px solid gray;
+
+}
+
+.main h1{
+font-size:50px;
+text-shadow:2px 2px 4px black;
+
+}
+#input{
+width:300px;
+height:80px;
+text-align:center;
+font-size:40px;
+font-weight:bold;
+border:1px solid black ;
+border-radius:5px;
+}
+
+
+
+
+#input:hover{
+box-shadow:2px 2px 2px silver,-2px -2px 2px silver;
+
+}
+#range{
+width:250px;
+margin-top:50px;
+
+
+}
+span{
+margin-top:50px;
+font-size:30px;
+font-weight:bold;
+margin-left:10px
+}
+
+.btn{
+width:400px;
+height:70px;
+margin-top:30px;
+font-size:40px;
+font-weight:bold;
+background:blue;
+color:#fff;
+border-radius:8px;
+border:1px solid #000
+
+
+}
+.btn:active{
+
+background:rgba(0,0,0,0.5)
+}
+
+.result_field{
+
+margin-top:100px
+}
+label{
+font-size:35px;
+font-weight:bold;
+
+}
+#result{
+width:200px;
+height:50px;
+text-align:center;
+font-size:35px;
+font-weight:bold;
+border-radius:10px;
+border:2px solid black;
+
+}
+
+#total{
+width:200px;
+height:50px;
+text-align:center;
+font-size:35px;
+font-weight:bold;
+border:none;
+outline:none;
+background:none;
+margin-top:40px;
+}
+#lb{
+margin-top:40px
+}
+
+#alert{
+font-size:18px;
+display:block;
+padding:8px;
+color:red;
+visibility:hidden;
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="main">
+  <h1>Tip Calculator</h1>
+  <label id="alert">This field is required..!</label>
+  <input id="input" type="number" placeholder="Type Here"><br>
+  <input id="range" type="range" max="100" min="1" value="50" oninput="ranges()">
+  <span id="parcent" oninpit="ranges()">50%</span>
+  <p></p>
+  <button class="btn" onclick="btn()">Calculate</button><br>
+  <div class="result_field">
+  <label>Result:</label>
+  <input id="result" type="text" disabled><br>
+  <label id="lb">Total:</label>
+  <input id="total" type="text" disabled>
+  </div>
+</div>
+
+<button id="btn2">ok</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function ranges(){
+var range = document.getElementById("range");
+var parcent = document.getElementById("parcent");
+
+parcent.innerHTML=range.value+"%";
+
+}
+
+
+function btn(){
+var alert = document.getElementById("alert");
+var input = parseInt(document.getElementById("input").value);
+var range = parseInt(document.getElementById("range").value);
+var result = document.getElementById("result");
+var total = document.getElementById("total");
+
+if(!input){
+
+alert.style.visibility='visible';
+
+
+}
+
+else{
+alert.style.visibility='hidden';
+result.value=parseInt(input*(range/100));
+total.value=input+parseInt(result.value);
+}
+
+}
+
+
+</script>
+</body>
+</html>
